@@ -26,7 +26,7 @@ import Kruger from "../assets/images/Testimonials/Kruger.jpg";
 
 // TeamMembers
 import CEO from "../assets/images/TeamMembers/bhavin.jpg";
-import HRD from "../assets/images/TeamMembers/Prachi.jpg";
+import HRD from "../assets/images/TeamMembers/Prachi.jpeg";
 import Finance from "../assets/images/TeamMembers/Finance.jpg";
 import ProjectManager from "../assets/images/TeamMembers/Project-manager.jpg";
 import Frontend1 from "../assets/images/TeamMembers/Frontend1.jpg";
