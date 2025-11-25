@@ -25,8 +25,8 @@ import Reiner from '../assets/images/Testimonials/Reiner.jpg';
 import Kruger from '../assets/images/Testimonials/Kruger.jpg';
 
 // TeamMembers
-import CEO from '../assets/images/TeamMembers/CEO.jpg';
-import HRD from '../assets/images/TeamMembers/HRD.jpg';
+import CEO from '../assets/images/TeamMembers/Bhavin.jpg';
+import HRD from '../assets/images/TeamMembers/Prachi.jpg';
 import Finance from '../assets/images/TeamMembers/Finance.jpg';
 import ProjectManager from '../assets/images/TeamMembers/Project-manager.jpg';
 import Frontend1 from '../assets/images/TeamMembers/Frontend1.jpg';
@@ -152,34 +152,34 @@ export const Testimonials = [
     id: 1,
     name: 'Sasha Rose',
     company: 'Owner, Surveyor Corps',
-    testimoni: 'Thanks for Racxstudio, you guys are the best! Keep up the great work!',
+    testimoni: 'Thanks for Streamivus, you guys are the best! Keep up the great work!',
     imageUrl: Sasha,
   },
   {
     id: 2,
     name: 'Kruger Khan',
     company: 'Director, Shultan Oil',
-    testimoni: 'I just wanted to let you know that it’s been great working with Racxstudio.',
+    testimoni: 'I just wanted to let you know that it’s been great working with Streamivus.',
     imageUrl: Kruger,
   },
   {
     id: 3,
     name: 'Reiner John',
     company: 'CEO, Marley CO',
-    testimoni: 'Racxstudio is so great. Thank you so much for a job well done.',
+    testimoni: 'Streamivus is so great. Thank you so much for a job well done.',
     imageUrl: Reiner,
   },
 ];
 
 export const TeamMembers = [
   {
-    name: 'Rach David',
+    name: 'Bhavin Ondhiya',
     position: 'CEO',
     imageUrl: CEO,
   },
   {
-    name: 'Pauline Sydney',
-    position: 'HRD',
+    name: 'Prachi Kathiria',
+    position: 'CEO',
     imageUrl: HRD,
   },
   {

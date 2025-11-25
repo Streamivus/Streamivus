@@ -27,7 +27,7 @@ export const DiscussForm = (actions) => {
 
     const templateParams = {
       from_name: `${name} - ${company} ( ${phone} - ${email} )`,
-      to_name: 'Racxstudio',
+      to_name: 'Streamivus',
       message: projectIdea,
     };
 
