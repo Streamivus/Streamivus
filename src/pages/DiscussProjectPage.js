@@ -6,6 +6,7 @@ import { DiscussForm } from 'parts/DiscussForm';
 
 import Header from 'parts/Header';
 import Footer from 'parts/Footer';
+import SEO from 'parts/SEO';
 
 export const DiscussProjectPage = () => {
   const [data, setData] = useState({
@@ -39,6 +40,11 @@ export const DiscussProjectPage = () => {
 
   return (
     <>
+      <SEO
+        title="Discuss Your Project"
+        description="Tell us about your project. Streamivus will get back to you within 24 hours with next steps."
+        path="/discuss-project"
+      />
       <Header />
       <DiscussForm data={data} onChange={onChange} resetForm={resetForm} />
       <Footer />

@@ -14,6 +14,7 @@
     "react": "^18.3.1",
     "react-awesome-reveal": "^4.2.13",
     "react-dom": "^18.3.1",
+    "react-helmet-async": "^3.0.0",
     "react-router-dom": "^6.25.1",
     "react-scripts": "5.0.1",
     "react-tabs": "^6.0.2",
@@ -22,6 +23,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "dev": "react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

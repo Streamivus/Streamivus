@@ -6,6 +6,7 @@
 import React, { Component } from 'react';
 
 import Button from 'elements/Button';
+import SEO from 'parts/SEO';
 
 import NotFound from 'assets/images/NotFound.png';
 
@@ -14,6 +15,11 @@ export default class NotFoundPage extends Component {
   render() {
     return (
       <div className="flex flex-col w-full h-screen justify-center bg-gray-800">
+        <SEO
+          title="Page Not Found"
+          description="The page you are looking for does not exist."
+          path="/404"
+        />
         <div className="flex w-full justify-center">
           <img src={NotFound} alt="Not Found" className="sm:w-3/4 xl:w-5/12" />
         </div>

@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Streamivus",
+  "name": "Streamivus | Digital Product Studio",
+  "description": "A founder-led digital product studio building modern web, mobile, AI, and cloud experiences.",
   "icons": [
     {
       "src": "logo192.png",
@@ -10,6 +11,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#6610f2",
   "background_color": "#ffffff"
 }

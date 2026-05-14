@@ -12,54 +12,63 @@ import Button from '../elements/Button';
 
 export default function Portfolio({ data }) {
   return (
-    <section className="container mx-auto flex flex-col items-center mt-20">
-      <Fade direction="right" triggerOnce>
-        <h1 className="text-5xl text-theme-blue text-center font-bold">Our Selected Project</h1>
+    <section className="container mx-auto px-6 lg:px-12 flex flex-col items-center mt-20">
+      <Fade direction="up" triggerOnce>
+        <p className="text-sm tracking-widest uppercase text-theme-purple font-semibold mb-3">
+          Selected Work
+        </p>
       </Fade>
-      <Fade direction="left" triggerOnce>
-        <p className="font-light text-lg text-gray-400 text-center mb-12">
-          We are ready to scale up your business with our great work result.
+      <Fade direction="up" triggerOnce delay={100}>
+        <h2 className="text-4xl sm:text-5xl text-theme-blue text-center font-bold mb-3">
+          Recent case studies
+        </h2>
+      </Fade>
+      <Fade direction="up" triggerOnce delay={200}>
+        <p className="font-light text-lg text-gray-400 text-center mb-12 max-w-2xl">
+          Real products shipped for real customers — across web, mobile, AI, and SaaS.
         </p>
       </Fade>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 sm:gap-2 xl:gap-8 justify-items-center">
-        {
-          data.map((item, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <Fade direction="up" triggerOnce bottom delay={500 * index} key={index}>
-              <Button type="link" href={`/project/${item.id}`}>
-                <div className="group rounded-2xl shadow-xl w-auto m-3 transform transition duration-500 hover:scale-110 portofolio-card">
-                  <div className="relative">
-                    <img src={item.imageUrl} alt="Portfolio" className="rounded-t-2xl z-0" />
-                    <div className="absolute flex w-full h-full top-0 opacity-0 bg-black justify-center rounded-t-2xl rounded-b img-hover">
-                      <button className="focus:outline-none">
-                        <svg className="w-20 h-20 text-gray-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                  <div className="py-4">
-                    <h2 className="text-theme-blue text-center text-xl">{item.title}</h2>
-                    <p className="font-light text-gray-400 text-center">{item.type}</p>
-                  </div>
-                </div>
-              </Button>
-            </Fade>
-          ))
-        }
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full">
+        {data.slice(0, 6).map((item, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <Fade direction="up" triggerOnce delay={index * 80} key={item.id}>
+            <Button
+              type="link"
+              href={`/case-studies/${item.id}`}
+              className="block group rounded-2xl shadow-xl bg-white border border-gray-100 hover:border-light-theme-purple hover:shadow-2xl transition duration-300 overflow-hidden"
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={item.imageUrl}
+                  alt={item.title}
+                  className="w-full transform transition duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="py-5 px-6">
+                {item.industry && (
+                  <p className="text-xs uppercase tracking-wider text-theme-purple font-semibold mb-2">
+                    {item.industry}
+                  </p>
+                )}
+                <h3 className="text-theme-blue text-xl font-bold mb-1">{item.title}</h3>
+                <p className="font-light text-gray-500 text-sm">
+                  {item.summary || item.type}
+                </p>
+              </div>
+            </Button>
+          </Fade>
+        ))}
       </div>
 
-      <Fade bottom triggerOnce>
-        <Button href="/project" type="link" className="flex flex-grow-0 w-36 h-12 sm:w-40 sm:h-14 lg:w-44 lg:h-16 xl:w-36 xl:h-12 text-theme-purple px-5 border border-theme-purple items-center mt-14 rounded-full justify-center transition duration-300 hover:bg-theme-purple hover:text-white">
-          <p className="font-normal py-3 lg:text-lg xl:text-base">
-            See More
-          </p>
-          <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-          <svg className="w-4 h-4 -ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <Fade direction="up" triggerOnce>
+        <Button
+          href="/case-studies"
+          type="link"
+          className="inline-flex items-center mt-12 px-6 py-3 text-theme-purple border border-theme-purple rounded-full hover:bg-theme-purple hover:text-white transition duration-300"
+        >
+          See all case studies
+          <svg className="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </Button>
