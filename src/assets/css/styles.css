@@ -11,7 +11,7 @@ section {
 }
 
 .header {
-  @apply flex flex-col py-4 mb-4 justify-between;
+  @apply flex flex-col py-4 justify-between;
 }
 
 .hero {
@@ -24,11 +24,11 @@ section {
 
 @media (min-width: 1024px) {
   .header {
-    @apply container w-full flex-row py-8 px-10 mt-2 mb-4 mx-auto items-center content-center border-b border-gray-100;
+    @apply container w-full flex-row py-5 px-10 mx-auto items-center content-center;
   }
 
   .hero {
-    @apply container flex-row mx-auto mt-8;
+    @apply container flex-row mx-auto mt-8 items-center;
   }
 }
 

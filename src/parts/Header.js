@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Transition } from '@headlessui/react';
 import { useLocation } from 'react-router-dom';
@@ -16,15 +16,29 @@ import { ServicesList } from '../json/servicesData';
 export default function Header() {
   const [isCollapse, setIsCollapse] = useState(false);
   const [openMenu, setOpenMenu] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const path = location.pathname;
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const linkBase = 'font-medium text-base xl:text-lg px-4 no-underline transition duration-200';
   const isActive = (target) => path === target || path.startsWith(`${target}/`);
   const linkClass = (target) => `${linkBase} ${isActive(target) ? 'text-theme-purple' : 'text-theme-blue hover:text-theme-purple'}`;
 
   return (
-    <header className="header relative">
+    <header
+      className={`header sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/75 backdrop-blur-md shadow-sm border-b border-gray-200/60'
+          : 'bg-white'
+      }`}
+    >
       <div className="flex justify-between px-4 lg:px-0">
         <BrandIcon />
 

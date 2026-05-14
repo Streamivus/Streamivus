@@ -92,33 +92,39 @@ export default function Footer() {
             </form>
 
             <div className="flex gap-4 mt-4">
-              <Button
+              <a
                 href={Company.social.instagram}
-                type="link"
                 target="_blank"
-                isExternal
-                className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-500 hover:text-theme-purple hover:border-theme-purple transition duration-200"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-500 shadow-sm hover:text-theme-purple hover:border-theme-purple hover:bg-light-theme-purple hover:shadow-[0_4px_14px_rgba(167,139,250,0.35)] hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-theme-purple/30"
               >
-                <span className="text-sm font-medium">Ig</span>
-              </Button>
-              <Button
+                <svg aria-hidden className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.336 3.608 1.311.975.975 1.249 2.242 1.311 3.608.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.062 1.366-.336 2.633-1.311 3.608-.975.975-2.242 1.249-3.608 1.311-1.265.058-1.644.07-4.849.07-3.204 0-3.584-.012-4.849-.07-1.366-.062-2.633-.336-3.608-1.311-.975-.975-1.249-2.242-1.311-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.849c.062-1.366.336-2.633 1.311-3.608.975-.975 2.242-1.249 3.608-1.311C8.416 2.175 8.796 2.163 12 2.163zm0 1.802c-3.141 0-3.51.012-4.745.068-1.014.046-1.564.215-1.93.357-.485.189-.832.413-1.196.777-.364.364-.588.711-.777 1.196-.142.366-.311.916-.357 1.93C2.939 8.49 2.927 8.859 2.927 12s.012 3.51.068 4.745c.046 1.014.215 1.564.357 1.93.189.485.413.832.777 1.196.364.364.711.588 1.196.777.366.142.916.311 1.93.357 1.235.056 1.604.068 4.745.068 3.141 0 3.51-.012 4.745-.068 1.014-.046 1.564-.215 1.93-.357.485-.189.832-.413 1.196-.777.364-.364.588-.711.777-1.196.142-.366.311-.916.357-1.93.056-1.235.068-1.604.068-4.745s-.012-3.51-.068-4.745c-.046-1.014-.215-1.564-.357-1.93-.189-.485-.413-.832-.777-1.196-.364-.364-.711-.588-1.196-.777-.366-.142-.916-.311-1.93-.357C15.51 3.977 15.141 3.965 12 3.965zm0 3.063A4.972 4.972 0 1 1 12 16.97a4.972 4.972 0 0 1 0-9.942zm0 8.205A3.233 3.233 0 1 0 12 8.764a3.233 3.233 0 0 0 0 6.469zm6.406-8.328a1.163 1.163 0 1 1-2.326 0 1.163 1.163 0 0 1 2.326 0z" />
+                </svg>
+              </a>
+              <a
                 href={Company.social.linkedin}
-                type="link"
                 target="_blank"
-                isExternal
-                className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-500 hover:text-theme-purple hover:border-theme-purple transition duration-200"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-500 shadow-sm hover:text-theme-purple hover:border-theme-purple hover:bg-light-theme-purple hover:shadow-[0_4px_14px_rgba(167,139,250,0.35)] hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-theme-purple/30"
               >
-                <span className="text-sm font-medium">In</span>
-              </Button>
-              <Button
+                <svg aria-hidden className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.778 13.019H3.555V9h3.56v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </a>
+              <a
                 href={Company.social.twitter}
-                type="link"
                 target="_blank"
-                isExternal
-                className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-500 hover:text-theme-purple hover:border-theme-purple transition duration-200"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-500 shadow-sm hover:text-theme-purple hover:border-theme-purple hover:bg-light-theme-purple hover:shadow-[0_4px_14px_rgba(167,139,250,0.35)] hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-theme-purple/30"
               >
-                <span className="text-sm font-medium">X</span>
-              </Button>
+                <svg aria-hidden className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
+                </svg>
+              </a>
             </div>
           </div>
 

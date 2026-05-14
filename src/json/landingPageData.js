@@ -19,11 +19,6 @@ import Collaborative from "../assets/images/Advantages/Collaborative.png";
 import Management from "../assets/images/Advantages/Management.png";
 import Favorite from "../assets/images/Advantages/Favorite.png";
 
-// Testimonials
-import Sasha from "../assets/images/Testimonials/Sasha.jpg";
-import Reiner from "../assets/images/Testimonials/Reiner.jpg";
-import Kruger from "../assets/images/Testimonials/Kruger.jpg";
-
 // TeamMembers
 import Bhavin from "../assets/images/TeamMembers/bhavin.jpg";
 import Prachi from "../assets/images/TeamMembers/Prachi.jpeg";
@@ -207,57 +202,47 @@ export const Portfolios = [
 ];
 
 export const Advantages = [
-  [
-    {
-      title: "Communicative",
-      description:
-        "We communicate our project ideas and progress to make it clear.",
-      imageUrl: Communicative,
-    },
-    {
-      title: "Management",
-      description:
-        "We manage our project properly to make our project done well.",
-      imageUrl: Management,
-    },
-  ],
-  [
-    {
-      title: "Collaborative​",
-      description:
-        "Our team are very collaborative to make our project done well.",
-      imageUrl: Collaborative,
-    },
-    {
-      title: "Favorite",
-      description: "We've did so many project and all of our client love it.",
-      imageUrl: Favorite,
-    },
-  ],
+  {
+    title: "Clear Communication",
+    description:
+      "We keep you informed at every stage with transparent updates, feedback loops, and collaborative discussions.",
+    imageUrl: Communicative,
+  },
+  {
+    title: "Collaborative Approach",
+    description:
+      "Our designers, developers, and strategists work closely together to turn ideas into impactful digital products.",
+    imageUrl: Collaborative,
+  },
+  {
+    title: "Efficient Project Management",
+    description:
+      "We follow structured workflows and agile processes to deliver projects smoothly, on time, and with clarity.",
+    imageUrl: Management,
+  },
+  {
+    title: "Client-Focused Experience",
+    description:
+      "We build long-term partnerships by creating experiences that clients trust, value, and genuinely enjoy.",
+    imageUrl: Favorite,
+  },
 ];
 export const Testimonials = [
   {
     id: 1,
-    name: "Sasha Rose",
-    company: "Owner, Surveyor Corps",
+    name: "Founder",
+    company: "Series A SaaS",
+    initials: "FS",
     testimoni:
-      "Thanks for Streamivus, you guys are the best! Keep up the great work!",
-    imageUrl: Sasha,
+      "Streamivus helped us transform our product vision into a polished and scalable platform. Their design thinking, communication, and execution exceeded our expectations.",
   },
   {
     id: 2,
-    name: "Kruger Khan",
-    company: "Director, Shultan Oil",
+    name: "Head of Product",
+    company: "FinTech Startup",
+    initials: "HP",
     testimoni:
-      "I just wanted to let you know that it’s been great working with Streamivus.",
-    imageUrl: Kruger,
-  },
-  {
-    id: 3,
-    name: "Reiner John",
-    company: "CEO, Marley CO",
-    testimoni: "Streamivus is so great. Thank you so much for a job well done.",
-    imageUrl: Reiner,
+      "The team was highly collaborative, detail-oriented, and incredibly easy to work with. They delivered a seamless experience from strategy to development.",
   },
 ];
 

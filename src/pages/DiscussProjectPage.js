@@ -8,14 +8,18 @@ import Header from 'parts/Header';
 import Footer from 'parts/Footer';
 import SEO from 'parts/SEO';
 
+const INITIAL_DATA = {
+  name: '',
+  email: '',
+  company: '',
+  budget: '',
+  phone: '',
+  services: [],
+  projectIdea: '',
+};
+
 export const DiscussProjectPage = () => {
-  const [data, setData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    projectIdea: '',
-  });
+  const [data, setData] = useState(INITIAL_DATA);
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -28,14 +32,17 @@ export const DiscussProjectPage = () => {
     }));
   };
 
+  const onToggleService = (service) => {
+    setData((prevData) => ({
+      ...prevData,
+      services: prevData.services.includes(service)
+        ? prevData.services.filter((s) => s !== service)
+        : [...prevData.services, service],
+    }));
+  };
+
   const resetForm = () => {
-    setData({
-      name: '',
-      company: '',
-      email: '',
-      phone: '',
-      projectIdea: '',
-    });
+    setData(INITIAL_DATA);
   };
 
   return (
@@ -46,7 +53,12 @@ export const DiscussProjectPage = () => {
         path="/discuss-project"
       />
       <Header />
-      <DiscussForm data={data} onChange={onChange} resetForm={resetForm} />
+      <DiscussForm
+        data={data}
+        onChange={onChange}
+        onToggleService={onToggleService}
+        resetForm={resetForm}
+      />
       <Footer />
     </>
   );

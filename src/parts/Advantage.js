@@ -1,62 +1,63 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable import/extensions */
 
 import React from 'react';
 
-import Fade from 'react-awesome-reveal';
+import { Fade } from 'react-awesome-reveal';
 
 export default function Advantage({ data }) {
   return (
-    <div className="bg-gray-50 py-20 mb-24 sm:mb-18 xl:mb-16">
-      <div className="container mx-auto">
-        <Fade bottom triggerOnce>
-          <h1 className="text-5xl text-theme-blue text-center font-bold">Why Choose Us</h1>
+    <section className="bg-gray-50 py-20 sm:py-24">
+      <div className="container mx-auto px-4 sm:px-8">
+        <div className="text-center mb-12 sm:mb-16">
+          <Fade direction="up" triggerOnce>
+            <p className="text-xs sm:text-sm tracking-widest uppercase text-theme-purple font-semibold mb-3">
+              Why Choose Us
+            </p>
+          </Fade>
+          <Fade direction="up" triggerOnce delay={100}>
+            <h2 className="text-4xl sm:text-5xl text-theme-blue font-bold tracking-tight mb-4">
+              Built for clarity, collaboration, and outcomes
+            </h2>
+          </Fade>
+          <Fade direction="up" triggerOnce delay={200}>
+            <p className="font-light text-lg text-gray-500 max-w-2xl mx-auto">
+              A senior, founder-led team that treats your product like our own.
+            </p>
+          </Fade>
+        </div>
 
-          <p className="font-light text-lg text-gray-400 text-center mb-12 sm:mb-5 xl:mb-0">
-            Why you should choose us to handle your project.
-          </p>
-        </Fade>
-
-        <div className="flex flex-col sm:flex-row">
-          <div className="flex-col">
-            {
-              data[0].map((item, index) => (
-                <Fade bottom triggerOnce delay={500 * index} key={index}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          {data.map((item, idx) => (
+            <div key={item.title} className="h-full">
+              <Fade
+                direction="up"
+                triggerOnce
+                delay={idx * 100}
+                style={{ height: '100%' }}
+              >
+                <div className="h-full flex items-center gap-5 sm:gap-6 bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8 transition duration-300 hover:shadow-2xl hover:border-light-theme-purple hover:-translate-y-1">
+                  <img
+                    src={item.imageUrl}
+                    alt=""
+                    className="w-20 h-20 sm:w-24 sm:h-24 object-contain flex-shrink-0"
+                  />
                   <div>
-                    <div className="bg-white flex flex-row items-center p-3 my-6 mx-3 sm:my-7 sm:mx-3 xl:my-14 xl:mx-7 rounded-2xl shadow-xl border border-light-theme-purple transform transition duration-500 hover:scale-105">
-                      <img src={item.imageUrl} alt="" className="w-1/3" />
-                      <div className="flex-col pl-5">
-                        <h2 className="text-theme-blue text-2xl">{item.title}</h2>
-                        <p className="font-light text-gray-400">{item.description}</p>
-                      </div>
-                    </div>
+                    <h3 className="text-theme-blue text-xl sm:text-2xl font-bold mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="font-light text-gray-500 leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
-                </Fade>
-              ))
-            }
-          </div>
-          <div className="flex-col -mt-4 sm:mt-14">
-            {
-              data[1].map((item, index) => (
-                <Fade bottom triggerOnce delay={500 * index} key={index}>
-                  <div>
-                    <div className="bg-white flex flex-row items-center p-3 my-6 mx-3 sm:my-7 sm:mx-3 xl:my-14 xl:mx-7 rounded-2xl shadow-xl border border-light-theme-purple transform transition duration-500 hover:scale-105">
-                      <img src={item.imageUrl} alt="" className="w-1/3" />
-                      <div className="flex-col pl-5">
-                        <h2 className="text-theme-blue text-2xl">{item.title}</h2>
-                        <p className="font-light text-gray-400">{item.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                </Fade>
-              ))
-            }
-          </div>
+                </div>
+              </Fade>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

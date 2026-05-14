@@ -24,40 +24,46 @@ export default function Portfolio({ data }) {
         </h2>
       </Fade>
       <Fade direction="up" triggerOnce delay={200}>
-        <p className="font-light text-lg text-gray-400 text-center mb-12 max-w-2xl">
+        <p className="font-light text-lg text-gray-400 text-center mb-12 max-w-2xl lg:max-w-4xl">
           Real products shipped for real customers — across web, mobile, AI, and SaaS.
         </p>
       </Fade>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full items-stretch">
         {data.slice(0, 6).map((item, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <Fade direction="up" triggerOnce delay={index * 80} key={item.id}>
-            <Button
-              type="link"
-              href={`/case-studies/${item.id}`}
-              className="block group rounded-2xl shadow-xl bg-white border border-gray-100 hover:border-light-theme-purple hover:shadow-2xl transition duration-300 overflow-hidden"
+          <div key={item.id} className="h-full">
+            <Fade
+              direction="up"
+              triggerOnce
+              delay={index * 80}
+              style={{ height: '100%' }}
             >
-              <div className="relative overflow-hidden">
-                <img
-                  src={item.imageUrl}
-                  alt={item.title}
-                  className="w-full transform transition duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="py-5 px-6">
-                {item.industry && (
-                  <p className="text-xs uppercase tracking-wider text-theme-purple font-semibold mb-2">
-                    {item.industry}
+              <Button
+                type="link"
+                href={`/case-studies/${item.id}`}
+                className="flex flex-col h-full group rounded-2xl shadow-xl bg-white border border-gray-100 hover:border-light-theme-purple hover:shadow-2xl transition duration-300 overflow-hidden"
+              >
+                <div className="relative overflow-hidden aspect-[16/10] bg-gray-100">
+                  <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="absolute inset-0 w-full h-full object-cover transform transition duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-col flex-1 py-5 px-6">
+                  {item.industry && (
+                    <p className="text-xs uppercase tracking-wider text-theme-purple font-semibold mb-2">
+                      {item.industry}
+                    </p>
+                  )}
+                  <h3 className="text-theme-blue text-xl font-bold mb-1">{item.title}</h3>
+                  <p className="font-light text-gray-500 text-sm">
+                    {item.summary || item.type}
                   </p>
-                )}
-                <h3 className="text-theme-blue text-xl font-bold mb-1">{item.title}</h3>
-                <p className="font-light text-gray-500 text-sm">
-                  {item.summary || item.type}
-                </p>
-              </div>
-            </Button>
-          </Fade>
+                </div>
+              </Button>
+            </Fade>
+          </div>
         ))}
       </div>
 
