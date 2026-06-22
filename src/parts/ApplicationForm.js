@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
-import * as emailjs from '@emailjs/browser';
+import sendContactEmail from '../utils/sendEmail';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -52,9 +52,9 @@ export default function ApplicationForm({ jobTitle = 'Open application', jobId =
       return;
     }
 
-    const templateParams = {
-      from_name: `Application: ${jobTitle} — ${name} (${email}, ${phone || 'no phone'})`,
-      to_name: 'Streamivus Careers',
+    sendContactEmail({
+      fromName: `Application: ${jobTitle} — ${name} (${email}, ${phone || 'no phone'})`,
+      toName: 'Streamivus Careers',
       message:
         `Role: ${jobTitle} (id: ${jobId})\n`
         + `Name: ${name}\n`
@@ -63,14 +63,7 @@ export default function ApplicationForm({ jobTitle = 'Open application', jobId =
         + `LinkedIn: ${linkedin || '—'}\n`
         + `Resume: ${resumeLink}\n\n`
         + `Cover letter / message:\n${coverLetter || '—'}`,
-    };
-
-    emailjs.send(
-      'service_h4gtndg',
-      'template_a9tvs7a',
-      templateParams,
-      'user_csqIxzN5mKsl1yw4ffJzV',
-    )
+    })
       .then(() => {
         toast.success('Application received! We\'ll reach out within 5 business days.');
         resetForm();

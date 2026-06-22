@@ -5,11 +5,11 @@
 
 import React, { useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
-import * as emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { ResourcesHero, Resources } from '../json/resourcesData';
+import sendContactEmail from '../utils/sendEmail';
 
 export default function ResourcesGrid() {
   const [activeResource, setActiveResource] = useState(null);
@@ -33,17 +33,10 @@ export default function ResourcesGrid() {
     e.preventDefault();
     if (!email || !activeResource) return;
     setLoading(true);
-    emailjs
-      .send(
-        'service_h4gtndg',
-        'template_a9tvs7a',
-        {
-          from_name: `Resource request: ${activeResource.title} — ${email}`,
-          to_name: 'Streamivus',
-          message: `Requested resource: ${activeResource.title} (${activeResource.slug})\nFrom: ${email}`,
-        },
-        'user_csqIxzN5mKsl1yw4ffJzV',
-      )
+    sendContactEmail({
+      fromName: `Resource request: ${activeResource.title} — ${email}`,
+      message: `Requested resource: ${activeResource.title} (${activeResource.slug})\nFrom: ${email}`,
+    })
       .then(
         () => {
           toast.success('Thanks! We\'ll send the resource to your inbox shortly.');

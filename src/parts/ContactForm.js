@@ -6,13 +6,13 @@
 
 import React, { useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
-import * as emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Form, FIELD_CLASSES } from 'elements/Form';
 import Button from 'elements/Button';
 import { Company } from '../json/companyData';
+import sendContactEmail from '../utils/sendEmail';
 
 const TOPICS = [
   'General inquiry',
@@ -90,19 +90,11 @@ export default function ContactForm() {
       name, company, email, phone, topic, message,
     } = data;
 
-    const templateParams = {
-      from_name: `${name} - ${company || 'No company'} (${phone || 'No phone'} - ${email})`,
-      to_name: 'Streamivus',
-      message: `[${topic}]\n\n${message}`,
-    };
-
     if (name !== '' && email !== '' && message !== '') {
-      emailjs.send(
-        'service_h4gtndg',
-        'template_a9tvs7a',
-        templateParams,
-        'user_csqIxzN5mKsl1yw4ffJzV',
-      )
+      sendContactEmail({
+        fromName: `${name} - ${company || 'No company'} (${phone || 'No phone'} - ${email})`,
+        message: `[${topic}]\n\n${message}`,
+      })
         .then(() => {
           toast.success('Message sent! We\'ll get back to you within 24 hours.');
           resetForm();

@@ -9,12 +9,11 @@ import React, { useEffect, useRef } from 'react';
 
 import { Fade } from 'react-awesome-reveal';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import * as emailjs from '@emailjs/browser';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { ToastContainer, toast } from 'react-toastify';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'react-toastify/dist/ReactToastify.css';
 import { FIELD_CLASSES } from 'elements/Form';
+import sendContactEmail from '../utils/sendEmail';
 
 const STEPS = [
   'We read every message personally',
@@ -62,28 +61,20 @@ export const DiscussForm = (actions) => {
       return;
     }
 
-    const templateParams = {
-      from_name: `${name} - ${company} ( ${email}${phone ? ` · ${phone}` : ''} )`,
-      to_name: 'Streamivus',
+    sendContactEmail({
+      fromName: `${name} - ${company} ( ${email}${phone ? ` · ${phone}` : ''} )`,
       message: [
         `Budget: ${budget || 'Not specified'}`,
         `Services: ${services && services.length ? services.join(', ') : 'Not specified'}`,
         '',
         projectIdea,
       ].join('\n'),
-    };
-
-    emailjs.send(
-      'service_h4gtndg',
-      'template_a9tvs7a',
-      templateParams,
-      'user_csqIxzN5mKsl1yw4ffJzV',
-    )
+    })
       .then(() => {
         toast.success('Success! we\'\ll get back to you soon. Thank you!');
         resetForm();
       }, (error) => {
-        toast.error(error);
+        toast.error(error?.text || 'Something went wrong. Please email info@streamivus.com.');
       });
   };
 
