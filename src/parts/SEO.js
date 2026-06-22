@@ -15,7 +15,7 @@ import {
   DEFAULT_SEO,
   SITE_NAME,
   SITE_URL,
-} from '../json/seoData';
+} from '../json/seoData.js';
 
 function normalizeJsonLd(jsonLd) {
   if (!jsonLd) return [];

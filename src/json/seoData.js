@@ -1,11 +1,11 @@
 /* eslint-disable linebreak-style */
 
-import { Company } from './companyData';
-import { ServicesList } from './servicesData';
-import { IndustriesList } from './industriesData';
-import { BlogPosts } from './blogData';
-import { Jobs } from './careersData';
-import { Portfolios } from './landingPageData';
+import { Company } from './companyData.js';
+import { ServicesList } from './servicesData.js';
+import { IndustriesList } from './industriesData.js';
+import { BlogPosts } from './blogData.js';
+import { Jobs } from './careersData.js';
+import { Portfolios } from './landingPageData.js';
 
 export const SITE_URL = 'https://www.streamivus.com';
 export const SITE_NAME = 'Streamivus';

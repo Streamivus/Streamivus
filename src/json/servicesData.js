@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 
-import { ServiceStacks } from './techStackData';
+import { ServiceStacks } from './techStackData.js';
 
 export const ServicesList = [
   {

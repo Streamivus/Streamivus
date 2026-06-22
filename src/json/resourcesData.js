@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 
-import { PartnerCategories } from './techStackData';
+import { PartnerCategories } from './techStackData.js';
 
 export const ResourcesHero = {
   eyebrow: 'Resources',
