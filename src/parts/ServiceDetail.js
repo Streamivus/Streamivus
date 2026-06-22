@@ -116,7 +116,7 @@ export default function ServiceDetail({ service }) {
           </h2>
         </Fade>
         <Fade direction="up" triggerOnce delay={150}>
-          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-3 max-w-6xl mx-auto">
             {service.stack.map((tech) => (
               <span
                 key={tech}

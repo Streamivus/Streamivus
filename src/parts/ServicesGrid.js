@@ -28,7 +28,7 @@ export default function ServicesGrid() {
               </p>
 
               <div className="flex flex-wrap gap-2 mb-6">
-                {s.stack.slice(0, 4).map((tech) => (
+                {s.stack.slice(0, 6).map((tech) => (
                   <span
                     key={tech}
                     className="text-xs font-light text-theme-blue bg-light-theme-purple bg-opacity-50 px-3 py-1 rounded-full border border-light-theme-purple"
@@ -36,6 +36,11 @@ export default function ServicesGrid() {
                     {tech}
                   </span>
                 ))}
+                {s.stack.length > 6 && (
+                  <span className="text-xs font-medium text-theme-purple bg-light-theme-purple bg-opacity-30 px-3 py-1 rounded-full border border-light-theme-purple">
+                    +{s.stack.length - 6} more
+                  </span>
+                )}
               </div>
 
               <Button

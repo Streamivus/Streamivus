@@ -1,5 +1,7 @@
 /* eslint-disable linebreak-style */
 
+import { PartnerCategories } from './techStackData';
+
 export const ResourcesHero = {
   eyebrow: 'Resources',
   title: 'Playbooks, guides, and templates.',
@@ -77,40 +79,7 @@ export const Partners = {
     description:
       'We pick technology on merit — not partnership marketing. Here\'s what we\'ve battle-tested across dozens of production deployments.',
   },
-  categories: [
-    {
-      title: 'Cloud',
-      items: ['AWS', 'Microsoft Azure', 'Google Cloud', 'Cloudflare', 'Vercel'],
-    },
-    {
-      title: 'Frontend',
-      items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    },
-    {
-      title: 'Backend',
-      items: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'Redis'],
-    },
-    {
-      title: 'Mobile',
-      items: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Expo'],
-    },
-    {
-      title: 'AI & GenAI',
-      items: ['OpenAI', 'Anthropic', 'LangChain', 'Pinecone', 'Vapi', 'ElevenLabs'],
-    },
-    {
-      title: 'Payments & Auth',
-      items: ['Stripe', 'Razorpay', 'Auth0', 'Clerk', 'Supabase'],
-    },
-    {
-      title: 'DevOps & Monitoring',
-      items: ['GitHub', 'GitLab', 'Docker', 'Kubernetes', 'Terraform', 'Datadog'],
-    },
-    {
-      title: 'Design',
-      items: ['Figma', 'Figma AI', 'Notion', 'Linear', 'Loom'],
-    },
-  ],
+  categories: PartnerCategories,
 };
 
 export const PressKit = {

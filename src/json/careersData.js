@@ -92,9 +92,9 @@ export const Jobs = [
     experience: '4 – 7 years',
     postedOn: 'May 1, 2026',
     summary:
-      'Own end-to-end product features across the stack — from API design to React UI to production deploys. Work directly with founders on the projects you care about.',
+      'Own end-to-end product features across the stack — from API design to polished UI to production deploys. Work directly with founders on the projects you care about.',
     responsibilities: [
-      'Design, build, and ship full-stack features in React, Node.js, and PostgreSQL',
+      'Design, build, and ship full-stack features across React, Vue, Angular, Node.js, Python, Java, .NET, Ruby on Rails, and more',
       'Take ownership of entire product surfaces — frontend, backend, infra',
       'Pair with designers from day one; treat UX as a first-class concern',
       'Write thoughtful tests, code reviews, and documentation',
@@ -103,14 +103,14 @@ export const Jobs = [
     ],
     requirements: [
       '4+ years building production web applications',
-      'Strong fluency in React, TypeScript, and Node.js',
-      'Solid relational-database skills (PostgreSQL preferred)',
-      'Comfortable with cloud (AWS / GCP) and CI/CD',
+      'Strong fluency in at least one modern frontend (React, Vue, Angular) and backend (Node.js, Python, Java, .NET, Ruby)',
+      'Solid database skills across SQL (PostgreSQL, MySQL, SQL Server) and NoSQL (MongoDB, Redis)',
+      'Comfortable with cloud (AWS / Azure / GCP) and CI/CD',
       'Excellent written communication — async-friendly',
       'Track record of shipping — bonus points for personal projects',
     ],
     niceToHave: [
-      'Experience with Next.js, GraphQL, or tRPC',
+      'Experience with Next.js, GraphQL, gRPC, tRPC, or Spring Boot',
       'Background in early-stage startups or agencies',
       'Open-source contributions',
       'AI/LLM application experience',
@@ -142,7 +142,7 @@ export const Jobs = [
     ],
     niceToHave: [
       'Motion / interaction design (Framer, Lottie)',
-      'Frontend tinkering (HTML/CSS/React)',
+      'Frontend tinkering (HTML/CSS/React, Vue, Angular)',
       'Brand & identity design experience',
     ],
   },
@@ -166,8 +166,8 @@ export const Jobs = [
     requirements: [
       '2+ years building production software',
       'Hands-on experience with OpenAI, Anthropic, or similar APIs',
-      'Comfort with Python or Node.js for LLM tooling',
-      'Working knowledge of vector databases (Pinecone, pgvector)',
+      'Comfort with Python, Node.js, Java, or .NET for LLM tooling',
+      'Working knowledge of vector databases (Pinecone, pgvector, Elasticsearch, MongoDB Atlas)',
       'Strong systems thinking — you understand cost, latency, reliability',
     ],
     niceToHave: [

@@ -66,7 +66,7 @@ export const Portfolios = [
       { label: "Drop in time-to-screen", value: "−66%" },
       { label: "Recruiter NPS", value: "+58" },
     ],
-    stack: ["React Native", "Node.js", "PostgreSQL", "AWS"],
+    stack: ["React Native", "Kotlin", "Swift", "Node.js", "NestJS", "PostgreSQL", "MongoDB", "Redis", "AWS"],
   },
   {
     id: "asd1293uhjkhkjh2",
@@ -92,7 +92,7 @@ export const Portfolios = [
       { label: "Average rating", value: "4.7★" },
       { label: "Time-to-first-frame", value: "<2s" },
     ],
-    stack: ["React Native", "HLS", "Node.js", "Redis"],
+    stack: ["React Native", "Flutter", "HLS", "Go", "Node.js", "Redis", "MongoDB", "AWS", "CloudFront"],
   },
   {
     id: "asd1293uvbvcbbd3",
@@ -118,7 +118,7 @@ export const Portfolios = [
       { label: "Platform fee vs market", value: "−60%" },
       { label: "Time to first match", value: "<24h" },
     ],
-    stack: ["React Native", "Node.js", "Stripe Connect", "PostgreSQL"],
+    stack: ["React Native", "Ruby on Rails", "Stripe Connect", "PostgreSQL", "Redis", "Sidekiq", "GraphQL"],
   },
   {
     id: "asd1293ufgdfgs4",
@@ -144,7 +144,7 @@ export const Portfolios = [
       { label: "Lighthouse score", value: "94" },
       { label: "Bounce rate", value: "−38%" },
     ],
-    stack: ["Next.js", "Shopify Storefront API", "Tailwind", "Vercel"],
+    stack: ["Next.js", "Vue.js", "Shopify Storefront API", "GraphQL", "Tailwind CSS", "Vercel"],
   },
   {
     id: "asd1293ulskmnb5",
@@ -170,7 +170,7 @@ export const Portfolios = [
       { label: "Active locations", value: "12" },
       { label: "Avg menu update", value: "10 min" },
     ],
-    stack: ["Next.js", "Node.js", "PostgreSQL", "Stripe", "Zomato/Swiggy APIs"],
+    stack: ["Next.js", "Laravel", "PHP", "MySQL", "Redis", "Stripe", "REST APIs", "Zomato/Swiggy APIs"],
   },
   {
     id: "asd1293ulkmnbj6",
@@ -197,7 +197,7 @@ export const Portfolios = [
       { label: "Time to first publish", value: "<5 min" },
       { label: "Tool consolidation", value: "5 → 1" },
     ],
-    stack: ["React", "Next.js", "Node.js", "Stripe", "PostgreSQL", "AWS"],
+    stack: ["React", "Angular", "Django", "Python", "PostgreSQL", "Elasticsearch", "Stripe", "AWS"],
   },
 ];
 
@@ -230,19 +230,27 @@ export const Advantages = [
 export const Testimonials = [
   {
     id: 1,
-    name: "Founder",
-    company: "Series A SaaS",
-    initials: "FS",
+    name: "Shervin Dolab",
+    company: "All1House Limited",
+    initials: "SD",
     testimoni:
       "Streamivus helped us transform our product vision into a polished and scalable platform. Their design thinking, communication, and execution exceeded our expectations.",
   },
   {
     id: 2,
-    name: "Head of Product",
-    company: "FinTech Startup",
-    initials: "HP",
+    name: "Mohammad Ashfaq",
+    company: "BDA development",
+    initials: "MA",
     testimoni:
       "The team was highly collaborative, detail-oriented, and incredibly easy to work with. They delivered a seamless experience from strategy to development.",
+  },
+  {
+    id: 3,
+    name: "Saikat G",
+    company: "Bandra Flowers",
+    initials: "SG",
+    testimoni:
+      "Streamivus brought our brand to life online with a beautiful, easy-to-use storefront. From design to launch, they understood our vision and helped Bandra Flowers reach more customers with confidence.",
   },
 ];
 
@@ -260,7 +268,8 @@ export const TeamMembers = [
       "Chatbot Development",
       "AI Voice Agents & Cold Calling",
       "Cloud (AWS, Azure, GCP)",
-      "Databases (PostgreSQL, MySQL)",
+      "Databases (PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch, SQL Server, Oracle)",
+      "Backend (.NET, Java, Python, Node.js, Ruby on Rails, PHP)",
       "DevOps & Deployment",
       "App Security (RSA, Attack Prevention)",
       "SEO Optimization",
@@ -276,6 +285,8 @@ export const TeamMembers = [
       "UI / UX Design",
       "Product Design",
       "Figma & Figma AI",
+      "Sketch & Adobe XD",
+      "Material UI & Ant Design",
       "Canva & Visual Design",
       "Logo Design",
       "Branding & Identity",

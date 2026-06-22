@@ -28,7 +28,7 @@ export default function PartnersGrid() {
       </section>
 
       <section className="container mx-auto px-6 lg:px-12 pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
           {Partners.categories.map((cat, idx) => (
             <Fade direction="up" triggerOnce delay={idx * 60} key={cat.title}>
               <div className="bg-white rounded-2xl p-7 sm:p-8 shadow-lg border border-gray-100 hover:border-light-theme-purple hover:shadow-2xl transition duration-300 h-full">

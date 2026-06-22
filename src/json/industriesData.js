@@ -79,7 +79,7 @@ export const IndustriesList = [
     ],
     solutions: [
       'Headless commerce on Shopify / Medusa / custom',
-      'Custom storefronts with React/Next.js',
+      'Custom storefronts with React, Next.js, Vue, Angular, or .NET',
       'AI-powered product recommendations',
       'Backend ops dashboards & integrations',
     ],

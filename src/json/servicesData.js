@@ -1,5 +1,7 @@
 /* eslint-disable linebreak-style */
 
+import { ServiceStacks } from './techStackData';
+
 export const ServicesList = [
   {
     slug: 'web-development',
@@ -7,7 +9,7 @@ export const ServicesList = [
     tagline: 'High-performance web apps that scale with your business.',
     icon: 'web',
     summary:
-      'Custom web platforms, dashboards, and SaaS products built with React, Next.js, Node.js, and modern cloud infrastructure.',
+      'Custom web platforms, dashboards, and SaaS products across React, Vue, Angular, .NET, Java, Python, Ruby on Rails, and modern cloud infrastructure.',
     problems: [
       'Slow, outdated websites losing customers',
       'Internal tools that don\'t scale with the team',
@@ -15,13 +17,14 @@ export const ServicesList = [
     ],
     deliverables: [
       'Architecture & system design',
-      'Frontend (React, Next.js, TypeScript)',
-      'Backend (Node.js, Python, REST/GraphQL APIs)',
-      'Database design (PostgreSQL, MySQL, MongoDB)',
+      'Frontend (React, Next.js, Vue, Angular, Svelte, TypeScript)',
+      'Backend (Node.js, Python, Java, .NET, Ruby on Rails, PHP/Laravel)',
+      'APIs (REST, GraphQL, gRPC, tRPC)',
+      'Database design (PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch, and more)',
       'CI/CD, hosting & DevOps',
       'Security audits & performance tuning',
     ],
-    stack: ['React', 'Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'AWS'],
+    stack: ServiceStacks.webDevelopment,
     timeline: '4 – 16 weeks',
     startsAt: 'Custom quote',
   },
@@ -31,7 +34,7 @@ export const ServicesList = [
     tagline: 'Native-feel iOS & Android apps from a single codebase.',
     icon: 'mobile',
     summary:
-      'Cross-platform mobile apps with React Native and Flutter — plus native iOS/Android where it matters.',
+      'Cross-platform and native mobile apps with React Native, Flutter, Swift, Kotlin, and .NET MAUI — plus platform-specific modules where it matters.',
     problems: [
       'Need to ship to iOS + Android without doubling cost',
       'Existing app feels slow, dated, or unmaintained',
@@ -39,13 +42,13 @@ export const ServicesList = [
     ],
     deliverables: [
       'UX & UI design for mobile',
-      'React Native / Flutter implementation',
-      'Native modules (Swift / Kotlin) when needed',
+      'React Native, Flutter, Swift, Kotlin, or .NET MAUI implementation',
+      'Native modules (Swift / Kotlin / Objective-C) when needed',
       'Push notifications, in-app purchases, analytics',
       'App Store & Play Store submission',
       'Crash reporting & ongoing maintenance',
     ],
-    stack: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase'],
+    stack: ServiceStacks.mobileDevelopment,
     timeline: '8 – 20 weeks',
     startsAt: 'Custom quote',
   },
@@ -69,7 +72,7 @@ export const ServicesList = [
       'Design systems & component libraries',
       'Brand identity & visual design',
     ],
-    stack: ['Figma', 'Figma AI', 'Canva', 'Adobe CC', 'Framer'],
+    stack: ServiceStacks.uiUxDesign,
     timeline: '2 – 10 weeks',
     startsAt: 'Custom quote',
   },
@@ -93,7 +96,7 @@ export const ServicesList = [
       'Document understanding & extraction',
       'Production monitoring & cost controls',
     ],
-    stack: ['OpenAI', 'Anthropic', 'LangChain', 'Pinecone', 'Vapi', 'ElevenLabs'],
+    stack: ServiceStacks.aiGenai,
     timeline: '4 – 12 weeks',
     startsAt: 'Custom quote',
   },
@@ -117,7 +120,7 @@ export const ServicesList = [
       'Integrations (HubSpot, Slack, Zapier, webhooks)',
       'Customer onboarding flows',
     ],
-    stack: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Auth0', 'AWS'],
+    stack: ServiceStacks.saasCrm,
     timeline: '12 – 32 weeks',
     startsAt: 'Custom quote',
   },
@@ -141,7 +144,7 @@ export const ServicesList = [
       'Cost optimization & FinOps',
       'Security hardening & compliance prep',
     ],
-    stack: ['AWS', 'Azure', 'GCP', 'Terraform', 'Docker', 'Kubernetes'],
+    stack: ServiceStacks.cloudDevops,
     timeline: '4 – 16 weeks',
     startsAt: 'Custom quote',
   },
@@ -165,7 +168,7 @@ export const ServicesList = [
       'On-page SEO & content optimization',
       'Site speed & Lighthouse score improvements',
     ],
-    stack: ['Burp Suite', 'OWASP ZAP', 'Lighthouse', 'Ahrefs', 'Google Search Console'],
+    stack: ServiceStacks.securitySeo,
     timeline: '2 – 8 weeks',
     startsAt: 'Custom quote',
   },
