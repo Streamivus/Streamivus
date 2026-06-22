@@ -8,7 +8,7 @@ import BrandIcon from './BrandIcon';
 import Button from '../elements/Button';
 import { Company } from '../json/companyData';
 import { ServicesList } from '../json/servicesData';
-import sendContactEmail from '../utils/sendEmail.js';
+import subscribeNewsletter from '../utils/subscribeNewsletter.js';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -19,10 +19,7 @@ export default function Footer() {
     if (!email) return;
     setStatus('loading');
 
-    sendContactEmail({
-      fromName: `Newsletter signup: ${email}`,
-      message: `New newsletter subscriber: ${email}`,
-    })
+    subscribeNewsletter(email)
       .then(() => {
         setStatus('success');
         setEmail('');
