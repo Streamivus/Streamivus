@@ -27,7 +27,15 @@ export default function Service({ data }) {
               <Fade direction={item.animation} delay={500 * index} key={index} triggerOnce>
                 <div>
                   <div className="bg-white group rounded-2xl shadow-2xl border border-light-theme-purple transform transition duration-500 hover:scale-105">
-                    <img src={item.imageUrl} alt="Service" className="w-full rounded-t-2xl" />
+                    <img
+                      src={item.imageUrl}
+                      alt={item.title}
+                      width={640}
+                      height={360}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full rounded-t-2xl aspect-[16/9] object-cover"
+                    />
                     <h2 className="text-theme-blue text-center text-xl py-7 rounded-b-2xl">{item.title}</h2>
                   </div>
                 </div>

@@ -12,9 +12,7 @@ import {
   Navigation, Pagination, A11y, Autoplay,
 } from 'swiper/modules';
 
-import 'swiper/swiper-bundle.css';
 import 'swiper/css';
-import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 

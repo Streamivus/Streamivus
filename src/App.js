@@ -38,8 +38,8 @@ const NotFoundPage = lazy(() => import('pages/NotFoundPage'));
 
 function LoadingFallback() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="w-12 h-12 border-4 border-light-theme-purple border-t-theme-purple rounded-full animate-spin" />
+    <div className="flex items-center justify-center py-24" aria-hidden="true">
+      <div className="w-10 h-10 border-4 border-light-theme-purple border-t-theme-purple rounded-full animate-spin" />
     </div>
   );
 }

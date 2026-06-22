@@ -47,6 +47,10 @@ export default function Portfolio({ data }) {
                   <img
                     src={item.imageUrl}
                     alt={item.title}
+                    width={640}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover transform transition duration-500 group-hover:scale-105"
                   />
                 </div>
