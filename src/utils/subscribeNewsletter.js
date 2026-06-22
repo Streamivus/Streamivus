@@ -35,17 +35,12 @@ export default async function subscribeNewsletter(email) {
       const data = await response.json().catch(() => ({}));
       throw new Error(data.error || 'Please enter a valid email address.');
     }
-
-    if (response.status !== 404) {
-      throw new Error('Subscribe failed');
-    }
   } catch (error) {
-    if (error.message === 'Subscribe failed' || error.message.includes('valid email')) {
-      throw error;
-    }
-    // Network error or missing API route (local dev) — fall through to client EmailJS.
+    // Network error or missing API route — fall through to client EmailJS.
   }
 
+  // If server-side subscribe fails (common when EMAILJS_PRIVATE_KEY isn't set),
+  // fall back to the browser EmailJS SDK so the user can still subscribe.
   await sendContactEmail({
     fromName: `Newsletter signup: ${normalized}`,
     message: `New newsletter subscriber: ${normalized}`,
