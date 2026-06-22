@@ -7,12 +7,12 @@
 
 import React, { useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
-import sendContactEmail from '../utils/sendEmail';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Form } from 'elements/Form';
 import Button from 'elements/Button';
+import sendContactEmail from '../utils/sendEmail.js';
 
 export default function ApplicationForm({ jobTitle = 'Open application', jobId = 'open' }) {
   const [data, setData] = useState({

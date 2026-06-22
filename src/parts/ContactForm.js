@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Form, FIELD_CLASSES } from 'elements/Form';
 import Button from 'elements/Button';
 import { Company } from '../json/companyData';
-import sendContactEmail from '../utils/sendEmail';
+import sendContactEmail from '../utils/sendEmail.js';
 
 const TOPICS = [
   'General inquiry',

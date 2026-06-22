@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { ResourcesHero, Resources } from '../json/resourcesData';
-import sendContactEmail from '../utils/sendEmail';
+import sendContactEmail from '../utils/sendEmail.js';
 
 export default function ResourcesGrid() {
   const [activeResource, setActiveResource] = useState(null);

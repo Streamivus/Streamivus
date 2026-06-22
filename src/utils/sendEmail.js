@@ -3,14 +3,14 @@
 /* eslint-disable import/extensions */
 
 import emailjs from '@emailjs/browser';
-import emailJsConfig from '../config/emailjs';
+import emailConfig from '../config/emailjs';
 
 let initialized = false;
 
 function ensureEmailJsInit() {
-  if (initialized || !emailJsConfig.isConfigured) return;
+  if (initialized || !emailConfig.isConfigured) return;
   emailjs.init({
-    publicKey: emailJsConfig.publicKey,
+    publicKey: emailConfig.publicKey,
     blockHeadless: true,
   });
   initialized = true;
@@ -25,21 +25,21 @@ export default function sendContactEmail({
   message,
   toName = 'Streamivus',
 }) {
-  if (!emailJsConfig.isConfigured) {
+  if (!emailConfig.isConfigured) {
     return Promise.reject(new Error('EmailJS is not configured.'));
   }
 
   ensureEmailJsInit();
 
   return emailjs.send(
-    emailJsConfig.serviceId,
-    emailJsConfig.templateId,
+    emailConfig.serviceId,
+    emailConfig.templateId,
     {
       from_name: fromName,
       to_name: toName,
       message,
     },
-    { publicKey: emailJsConfig.publicKey },
+    { publicKey: emailConfig.publicKey },
   );
 }
 

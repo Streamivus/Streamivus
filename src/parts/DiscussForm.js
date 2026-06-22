@@ -13,7 +13,7 @@ import { ToastContainer, toast } from 'react-toastify';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'react-toastify/dist/ReactToastify.css';
 import { FIELD_CLASSES } from 'elements/Form';
-import sendContactEmail from '../utils/sendEmail';
+import sendContactEmail from '../utils/sendEmail.js';
 
 const STEPS = [
   'We read every message personally',
