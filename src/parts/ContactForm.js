@@ -10,7 +10,7 @@ import * as emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { Form } from 'elements/Form';
+import { Form, FIELD_CLASSES } from 'elements/Form';
 import Button from 'elements/Button';
 import { Company } from '../json/companyData';
 
@@ -115,10 +115,10 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="bg-gray-50 border-b border-gray-100">
-      <div className="container mx-auto px-6 lg:px-12 pt-16 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-6xl mx-auto">
-          <div className="lg:col-span-2">
+    <section className="bg-gray-50 border-b border-gray-100 overflow-x-hidden">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-12 pt-16 pb-20 max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          <div className="lg:col-span-5 min-w-0">
             <Fade direction="up" triggerOnce>
               <p className="text-sm tracking-widest uppercase text-theme-purple font-semibold mb-3">
                 Contact
@@ -163,7 +163,7 @@ export default function ContactForm() {
                       {item.label}
                     </p>
                     {item.type === 'link' ? (
-                      <a href={item.href} className="text-base text-gray-500 hover:text-theme-purple transition duration-200">
+                      <a href={item.href} className="text-base text-gray-500 hover:text-theme-purple transition duration-200 break-all">
                         {item.value}
                       </a>
                     ) : (
@@ -196,9 +196,9 @@ export default function ContactForm() {
             </div>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-7 min-w-0">
             <Fade direction="up" triggerOnce delay={200}>
-              <div className="bg-white rounded-3xl border border-light-theme-purple shadow-2xl p-7 sm:p-10">
+              <div className="bg-white rounded-3xl border border-light-theme-purple shadow-2xl p-7 sm:p-9 overflow-hidden">
                 <h2 className="text-2xl text-theme-blue font-bold mb-2">
                   Send us a message
                 </h2>
@@ -206,70 +206,61 @@ export default function ContactForm() {
                   Share a few details and we&apos;ll route your message to the right person.
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 sm:gap-x-6">
-                  <div className="flex flex-col mb-6">
-                    <Form
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={data.name}
-                      placeholder="Your name *"
-                      onChange={onChange}
-                    />
-                  </div>
-                  <div className="flex flex-col mb-6">
-                    <Form
-                      id="company"
-                      name="company"
-                      type="text"
-                      value={data.company}
-                      placeholder="Company (optional)"
-                      onChange={onChange}
-                    />
-                  </div>
-                  <div className="flex flex-col mb-6">
-                    <Form
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={data.email}
-                      placeholder="Email *"
-                      onChange={onChange}
-                    />
-                  </div>
-                  <div className="flex flex-col mb-6">
-                    <Form
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={data.phone}
-                      placeholder="Phone (optional)"
-                      onChange={onChange}
-                    />
-                  </div>
-                </div>
-
-                <div className="mb-6 mx-2 lg:mx-5">
-                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                  <label htmlFor="topic" className="block text-sm text-theme-blue font-medium mb-2">
-                    What can we help with?
-                    <select
-                      id="topic"
-                      name="topic"
-                      value={data.topic}
-                      onChange={onTopicChange}
-                      className="mt-2 w-full p-4 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple bg-white"
-                    >
-                      {TOPICS.map((t) => (
-                        <option key={t} value={t}>{t}</option>
-                      ))}
-                    </select>
-                  </label>
-                </div>
-
-                <div className="mx-2 lg:mx-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <Form
-                    id="message"
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    value={data.name}
+                    placeholder="Your name *"
+                    onChange={onChange}
+                  />
+                  <Form
+                    id="contact-company"
+                    name="company"
+                    type="text"
+                    value={data.company}
+                    placeholder="Company (optional)"
+                    onChange={onChange}
+                  />
+                  <Form
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    value={data.email}
+                    placeholder="Email *"
+                    onChange={onChange}
+                  />
+                  <Form
+                    id="contact-phone"
+                    name="phone"
+                    type="text"
+                    value={data.phone}
+                    placeholder="Phone (optional)"
+                    onChange={onChange}
+                  />
+                </div>
+
+                <label htmlFor="topic" className="block mt-6">
+                  <span className="block text-sm text-theme-blue font-medium mb-2">
+                    What can we help with?
+                  </span>
+                  <select
+                    id="topic"
+                    name="topic"
+                    value={data.topic}
+                    onChange={onTopicChange}
+                    className={FIELD_CLASSES}
+                  >
+                    {TOPICS.map((t) => (
+                      <option key={t} value={t}>{t}</option>
+                    ))}
+                  </select>
+                </label>
+
+                <div className="mt-6">
+                  <Form
+                    id="contact-message"
                     name="message"
                     type="textarea"
                     value={data.message}
@@ -279,7 +270,7 @@ export default function ContactForm() {
                 </div>
 
                 <Button
-                  className="text-lg w-full sm:w-auto px-10 py-3 mt-2 bg-theme-purple text-white rounded-full border-2 border-theme-purple hover:bg-dark-theme-purple transition duration-200 focus:outline-none"
+                  className="text-lg w-full sm:w-auto px-10 py-3 mt-8 bg-theme-purple text-white rounded-full border-2 border-theme-purple hover:bg-dark-theme-purple transition duration-200 focus:outline-none"
                   type="button"
                   onClick={submitEmail}
                 >

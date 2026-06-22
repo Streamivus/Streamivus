@@ -6,9 +6,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+export const FIELD_CLASSES = 'w-full box-border px-4 py-3.5 text-base text-theme-blue font-light rounded-xl border border-gray-300 bg-white shadow-sm placeholder-gray-400 transition duration-200 focus:outline-none focus:ring-2 focus:ring-theme-purple/30 focus:border-theme-purple';
+
 export const Form = (props) => {
   const {
-    name, value, type, placeholder, className, errorResponse,
+    id, name, value, type, placeholder, className, errorResponse,
   } = props;
 
   const [hasError, setHasError] = useState(null);
@@ -46,15 +48,13 @@ export const Form = (props) => {
   if (type === 'textarea') {
     return (
       <textarea
+        id={id}
         name={name}
         placeholder={placeholder}
         value={value}
-        className={[
-          'w-95 sm:w-192 lg:w-192.5 xl:w-192.5 p-4 mx-2 mb-6 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple',
-          className,
-        ].join(' ')}
+        className={[FIELD_CLASSES, 'min-h-36 resize-y', className].join(' ')}
         onChange={onChange}
-        rows="9"
+        rows="6"
         required
       />
     );
@@ -62,22 +62,20 @@ export const Form = (props) => {
 
   if (type === 'number') {
     return (
-      <div className="flex flex-col mb-6 mx-2 lg:mx-5 ">
+      <div className="flex w-full flex-col">
         <input
+          id={id}
           name={name}
           type={type}
           placeholder={placeholder}
           pattern={pattern}
           value={value}
-          className={[
-            'p-4 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple',
-            className,
-          ].join(' ')}
+          className={[FIELD_CLASSES, className].join(' ')}
           onChange={onChange}
           required
         />
         {hasError && (
-          <span className="text-sm text-white bg-red-500 p-1 rounded">
+          <span className="mt-1 text-sm text-white bg-red-500 p-1 rounded">
             {hasError}
           </span>
         )}
@@ -86,21 +84,19 @@ export const Form = (props) => {
   }
 
   return (
-    <div className="flex flex-col mb-6 mx-2 lg:mx-5 ">
+    <div className="flex w-full flex-col">
       <input
+        id={id}
         name={name}
         type={type}
         placeholder={placeholder}
         value={value}
-        className={[
-          'p-4 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple',
-          className,
-        ].join(' ')}
+        className={[FIELD_CLASSES, className].join(' ')}
         onChange={onChange}
         required
       />
       {hasError && (
-        <span className="text-sm text-white bg-red-500 p-1 rounded">
+        <span className="mt-1 text-sm text-white bg-red-500 p-1 rounded">
           {hasError}
         </span>
       )}
@@ -109,6 +105,7 @@ export const Form = (props) => {
 };
 
 Form.defaultProps = {
+  id: undefined,
   errorResponse: 'Please match the requested format.',
   type: '',
   placeholder: '',
@@ -116,6 +113,7 @@ Form.defaultProps = {
 };
 
 Form.propTypes = {
+  id: PropTypes.string,
   name: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   onChange: PropTypes.func.isRequired,

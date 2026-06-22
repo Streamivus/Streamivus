@@ -14,8 +14,7 @@ import * as emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'react-toastify/dist/ReactToastify.css';
-
-const FIELD_CLASSES = 'w-full px-4 py-3.5 text-base text-theme-blue font-light rounded-xl border border-gray-300 bg-white shadow-sm placeholder-gray-400 transition duration-200 focus:outline-none focus:ring-2 focus:ring-theme-purple/30 focus:border-theme-purple';
+import { FIELD_CLASSES } from 'elements/Form';
 
 const STEPS = [
   'We read every message personally',
@@ -89,10 +88,10 @@ export const DiscussForm = (actions) => {
   };
 
   return (
-    <section className="container mx-auto px-4 sm:px-8 py-14 sm:py-20">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+    <section className="container mx-auto px-4 sm:px-8 py-14 sm:py-20 max-w-6xl overflow-x-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
         {/* Left column */}
-        <div className="lg:col-span-5 lg:pr-4">
+        <div className="lg:col-span-5 lg:pr-4 min-w-0">
           <Fade direction="up" triggerOnce>
             <p className="text-xs sm:text-sm tracking-widest uppercase text-theme-purple font-semibold mb-4">
               Start a Project
@@ -150,9 +149,9 @@ export const DiscussForm = (actions) => {
         </div>
 
         {/* Right column - form card */}
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-7 min-w-0">
           <Fade direction="up" triggerOnce>
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-7 sm:p-9">
+            <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-7 sm:p-9 overflow-hidden">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <label htmlFor="discuss-name" className="block">
                   <span className="block text-sm font-medium text-theme-blue mb-2">
