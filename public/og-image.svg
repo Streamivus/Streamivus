@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Streamivus digital product studio">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#152C5B"/>
+      <stop offset="100%" stop-color="#1e3a6e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1040" cy="120" r="180" fill="#6610f2" opacity="0.18"/>
+  <circle cx="140" cy="520" r="220" fill="#6610f2" opacity="0.12"/>
+  <text x="600" y="285" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="88" font-weight="700" fill="#ffffff">
+    Stream<tspan fill="#B794F6">ivus</tspan>
+  </text>
+  <text x="600" y="360" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="30" fill="#E3D3FD">
+    Digital Product Studio
+  </text>
+  <text x="600" y="410" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="24" fill="#cbd5e1">
+    Web · Mobile · AI · Cloud · Design
+  </text>
+  <text x="600" y="560" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="22" fill="#94a3b8">
+    streamivus.com
+  </text>
+</svg>

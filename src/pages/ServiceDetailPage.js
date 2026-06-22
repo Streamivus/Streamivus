@@ -10,6 +10,10 @@ import Footer from 'parts/Footer';
 import SEO from 'parts/SEO';
 
 import { ServicesList } from 'json/servicesData';
+import {
+  getBreadcrumbSchema,
+  getServiceSchema,
+} from 'json/seoData';
 
 export default function ServiceDetailPage() {
   const { slug } = useParams();
@@ -18,6 +22,17 @@ export default function ServiceDetailPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
+
+  const jsonLd = service
+    ? [
+      getServiceSchema(service),
+      getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+        { name: service.title, path: `/services/${service.slug}` },
+      ]),
+    ]
+    : null;
 
   return (
     <>
@@ -29,6 +44,13 @@ export default function ServiceDetailPage() {
             : 'Streamivus service offering.'
         }
         path={`/services/${slug}`}
+        keywords={
+          service
+            ? `${service.title}, ${service.stack.slice(0, 8).join(', ')}, Streamivus services`
+            : undefined
+        }
+        jsonLd={jsonLd}
+        noindex={!service}
       />
       <Header />
       <ServiceDetail service={service} />

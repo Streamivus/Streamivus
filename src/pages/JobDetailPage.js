@@ -10,6 +10,7 @@ import SEO from 'parts/SEO';
 
 import { Jobs } from 'json/careersData';
 import { Company } from 'json/companyData';
+import { SITE_URL } from 'json/seoData';
 
 export default function JobDetailPage() {
   const { id } = useParams();
@@ -41,7 +42,7 @@ export default function JobDetailPage() {
         '@type': 'Organization',
         name: Company.name,
         sameAs: 'https://www.streamivus.com',
-        logo: 'https://www.streamivus.com/logo192.png',
+        logo: `${SITE_URL}/favicon.svg`,
       },
       jobLocation: {
         '@type': 'Place',

@@ -9,6 +9,7 @@ import Footer from 'parts/Footer';
 import SEO from 'parts/SEO';
 
 import { BlogPosts } from 'json/blogData';
+import { SITE_URL } from 'json/seoData';
 
 export default function BlogPostPage() {
   const { slug } = useParams();
@@ -33,7 +34,7 @@ export default function BlogPostPage() {
         name: 'Streamivus',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://www.streamivus.com/logo192.png',
+          url: `${SITE_URL}/favicon.svg`,
         },
       },
       datePublished: post.publishedOn,

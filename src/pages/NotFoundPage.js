@@ -19,6 +19,7 @@ export default class NotFoundPage extends Component {
           title="Page Not Found"
           description="The page you are looking for does not exist."
           path="/404"
+          noindex
         />
         <div className="flex w-full justify-center">
           <img src={NotFound} alt="Not Found" className="sm:w-3/4 xl:w-5/12" />

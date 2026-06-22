@@ -1,22 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#6610f2" />
     <meta
       name="description"
       content="Streamivus is a founder-led digital product studio building modern web, mobile, AI, and cloud experiences for ambitious businesses worldwide."
     />
-    <meta name="keywords" content="Streamivus, digital agency, web development, mobile app development, UI UX design, AI development, SaaS development, cloud consulting, India" />
+    <meta name="keywords" content="Streamivus, digital agency, web development, mobile app development, UI UX design, AI development, SaaS development, cloud consulting, software agency India" />
     <meta name="author" content="Streamivus" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="geo.region" content="IN-GJ" />
+    <meta name="geo.placename" content="Rajkot, Gujarat, India" />
+    <link rel="canonical" href="https://www.streamivus.com/" />
 
-    <!-- Open Graph defaults -->
+    <!-- Open Graph defaults (fallback for crawlers before React hydrates) -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://www.streamivus.com/" />
     <meta property="og:title" content="Streamivus | Digital Product Studio for Web, Mobile & AI" />
     <meta property="og:description" content="A founder-led digital product studio building modern web, mobile, AI, and cloud experiences for ambitious businesses." />
-    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+    <meta property="og:image" content="https://www.streamivus.com/og-image.svg" />
     <meta property="og:site_name" content="Streamivus" />
 
     <!-- Twitter -->
@@ -24,16 +31,53 @@
     <meta name="twitter:site" content="@Streamivus" />
     <meta name="twitter:title" content="Streamivus | Digital Product Studio for Web, Mobile & AI" />
     <meta name="twitter:description" content="A founder-led digital product studio building modern web, mobile, AI, and cloud experiences." />
-    <meta name="twitter:image" content="%PUBLIC_URL%/og-image.png" />
+    <meta name="twitter:image" content="https://www.streamivus.com/og-image.svg" />
 
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <title>Streamivus | Digital Product Studio for Web, Mobile & AI</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://www.streamivus.com/#organization",
+            "name": "Streamivus",
+            "url": "https://www.streamivus.com",
+            "logo": "https://www.streamivus.com/favicon.svg",
+            "email": "info@streamivus.com",
+            "telephone": "+91 99782 75972",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Streamivus HQ",
+              "addressLocality": "Rajkot",
+              "addressRegion": "Gujarat",
+              "addressCountry": "IN"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/streamivus/",
+              "https://www.instagram.com/streamivus/",
+              "https://x.com/Streamivus",
+              "https://github.com/streamivus"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.streamivus.com/#website",
+            "name": "Streamivus",
+            "url": "https://www.streamivus.com",
+            "publisher": { "@id": "https://www.streamivus.com/#organization" },
+            "inLanguage": "en-IN"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

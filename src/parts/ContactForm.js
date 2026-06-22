@@ -22,6 +22,37 @@ const TOPICS = [
   'Support',
 ];
 
+const CONTACT_ITEMS = [
+  {
+    label: 'Email',
+    value: Company.email,
+    href: `mailto:${Company.email}`,
+    type: 'link',
+  },
+  {
+    label: 'Phone',
+    value: Company.phone,
+    href: `tel:${Company.phone.replace(/\s/g, '')}`,
+    type: 'link',
+  },
+  {
+    label: 'Careers',
+    value: Company.careersEmail,
+    href: `mailto:${Company.careersEmail}`,
+    type: 'link',
+  },
+  {
+    label: 'Office',
+    value: `${Company.address.line1}, ${Company.address.line2}, ${Company.address.country}`,
+    type: 'text',
+  },
+  {
+    label: 'Hours',
+    value: Company.hours,
+    type: 'text',
+  },
+];
+
 export default function ContactForm() {
   const [data, setData] = useState({
     name: '',
@@ -84,148 +115,179 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="container mx-auto px-6 lg:px-12 py-12">
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-6xl mx-auto">
-        <div className="lg:col-span-2">
-          <Fade direction="up" triggerOnce>
-            <p className="text-sm tracking-widest uppercase text-theme-purple font-semibold mb-3">
-              Contact
-            </p>
-          </Fade>
-          <Fade direction="up" triggerOnce delay={100}>
-            <h1 className="text-4xl sm:text-5xl text-theme-blue font-bold mb-5">
-              Get in touch.
-            </h1>
-          </Fade>
-          <Fade direction="up" triggerOnce delay={200}>
-            <p className="text-lg text-gray-500 font-light leading-relaxed mb-10">
-              Have a question, a project in mind, or just want to say hi? Drop us
-              a line — we usually reply within one business day.
-            </p>
-          </Fade>
+    <section className="bg-gray-50 border-b border-gray-100">
+      <div className="container mx-auto px-6 lg:px-12 pt-16 pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-6xl mx-auto">
+          <div className="lg:col-span-2">
+            <Fade direction="up" triggerOnce>
+              <p className="text-sm tracking-widest uppercase text-theme-purple font-semibold mb-3">
+                Contact
+              </p>
+            </Fade>
+            <Fade direction="up" triggerOnce delay={100}>
+              <h1 className="text-4xl sm:text-5xl text-theme-blue font-bold mb-5">
+                Get in touch.
+              </h1>
+            </Fade>
+            <Fade direction="up" triggerOnce delay={200}>
+              <p className="text-lg text-gray-500 font-light leading-relaxed mb-8">
+                Have a question, a project in mind, or just want to say hi? Drop us
+                a line — we usually reply within one business day.
+              </p>
+            </Fade>
 
-          <div className="space-y-6">
-            <Fade direction="up" triggerOnce delay={300}>
-              <div>
-                <p className="text-sm font-semibold text-theme-blue uppercase tracking-wider mb-1">Email</p>
-                <a href={`mailto:${Company.email}`} className="text-base text-gray-500 hover:text-theme-purple">
-                  {Company.email}
-                </a>
+            <Fade direction="up" triggerOnce delay={250}>
+              <div className="flex flex-wrap gap-3 mb-10">
+                <Button
+                  href="/discuss-project"
+                  type="link"
+                  className="inline-flex items-center px-6 py-3 bg-theme-purple text-white rounded-full hover:bg-dark-theme-purple transition duration-200"
+                >
+                  Start a project
+                </Button>
+                <Button
+                  href="/book-call"
+                  type="link"
+                  className="inline-flex items-center px-6 py-3 bg-white text-theme-blue rounded-full border border-light-theme-purple hover:border-theme-purple transition duration-200"
+                >
+                  Book a call
+                </Button>
               </div>
             </Fade>
-            <Fade direction="up" triggerOnce delay={350}>
-              <div>
-                <p className="text-sm font-semibold text-theme-blue uppercase tracking-wider mb-1">Careers</p>
-                <a href={`mailto:${Company.careersEmail}`} className="text-base text-gray-500 hover:text-theme-purple">
-                  {Company.careersEmail}
-                </a>
-              </div>
-            </Fade>
-            <Fade direction="up" triggerOnce delay={400}>
-              <div>
-                <p className="text-sm font-semibold text-theme-blue uppercase tracking-wider mb-1">Office</p>
-                <p className="text-base text-gray-500">{Company.address.line1}</p>
-                <p className="text-base text-gray-500">{Company.address.line2}</p>
-                <p className="text-base text-gray-500">{Company.address.country}</p>
-              </div>
-            </Fade>
-            <Fade direction="up" triggerOnce delay={450}>
-              <div>
-                <p className="text-sm font-semibold text-theme-blue uppercase tracking-wider mb-1">Hours</p>
-                <p className="text-base text-gray-500">{Company.hours}</p>
+
+            <div className="bg-white rounded-3xl border border-light-theme-purple shadow-lg p-7 space-y-6">
+              {CONTACT_ITEMS.map((item, idx) => (
+                <Fade direction="up" triggerOnce delay={300 + idx * 50} key={item.label}>
+                  <div>
+                    <p className="text-sm font-semibold text-theme-blue uppercase tracking-wider mb-1">
+                      {item.label}
+                    </p>
+                    {item.type === 'link' ? (
+                      <a href={item.href} className="text-base text-gray-500 hover:text-theme-purple transition duration-200">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-base text-gray-500 leading-relaxed">{item.value}</p>
+                    )}
+                  </div>
+                </Fade>
+              ))}
+
+              <Fade direction="up" triggerOnce delay={600}>
+                <div className="pt-2 border-t border-gray-100">
+                  <p className="text-sm font-semibold text-theme-blue uppercase tracking-wider mb-3">
+                    Follow us
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {Object.entries(Company.social).map(([network, url]) => (
+                      <a
+                        key={network}
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-gray-500 hover:text-theme-purple capitalize transition duration-200"
+                      >
+                        {network}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </Fade>
+            </div>
+          </div>
+
+          <div className="lg:col-span-3">
+            <Fade direction="up" triggerOnce delay={200}>
+              <div className="bg-white rounded-3xl border border-light-theme-purple shadow-2xl p-7 sm:p-10">
+                <h2 className="text-2xl text-theme-blue font-bold mb-2">
+                  Send us a message
+                </h2>
+                <p className="text-sm text-gray-500 font-light mb-6">
+                  Share a few details and we&apos;ll route your message to the right person.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 sm:gap-x-6">
+                  <div className="flex flex-col mb-6">
+                    <Form
+                      id="name"
+                      name="name"
+                      type="text"
+                      value={data.name}
+                      placeholder="Your name *"
+                      onChange={onChange}
+                    />
+                  </div>
+                  <div className="flex flex-col mb-6">
+                    <Form
+                      id="company"
+                      name="company"
+                      type="text"
+                      value={data.company}
+                      placeholder="Company (optional)"
+                      onChange={onChange}
+                    />
+                  </div>
+                  <div className="flex flex-col mb-6">
+                    <Form
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={data.email}
+                      placeholder="Email *"
+                      onChange={onChange}
+                    />
+                  </div>
+                  <div className="flex flex-col mb-6">
+                    <Form
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={data.phone}
+                      placeholder="Phone (optional)"
+                      onChange={onChange}
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-6 mx-2 lg:mx-5">
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                  <label htmlFor="topic" className="block text-sm text-theme-blue font-medium mb-2">
+                    What can we help with?
+                    <select
+                      id="topic"
+                      name="topic"
+                      value={data.topic}
+                      onChange={onTopicChange}
+                      className="mt-2 w-full p-4 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple bg-white"
+                    >
+                      {TOPICS.map((t) => (
+                        <option key={t} value={t}>{t}</option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+
+                <div className="mx-2 lg:mx-5">
+                  <Form
+                    id="message"
+                    name="message"
+                    type="textarea"
+                    value={data.message}
+                    placeholder="Tell us a little about what you need *"
+                    onChange={onChange}
+                  />
+                </div>
+
+                <Button
+                  className="text-lg w-full sm:w-auto px-10 py-3 mt-2 bg-theme-purple text-white rounded-full border-2 border-theme-purple hover:bg-dark-theme-purple transition duration-200 focus:outline-none"
+                  type="button"
+                  onClick={submitEmail}
+                >
+                  Send message
+                </Button>
               </div>
             </Fade>
           </div>
-        </div>
-
-        <div className="lg:col-span-3">
-          <Fade direction="up" triggerOnce delay={200}>
-            <div className="bg-white rounded-3xl border border-light-theme-purple shadow-2xl p-7 sm:p-10">
-              <h2 className="text-2xl text-theme-blue font-bold mb-6">
-                Send us a message
-              </h2>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 sm:gap-x-6">
-                <div className="flex flex-col mb-6">
-                  <Form
-                    id="name"
-                    name="name"
-                    type="text"
-                    value={data.name}
-                    placeholder="Your name *"
-                    onChange={onChange}
-                  />
-                </div>
-                <div className="flex flex-col mb-6">
-                  <Form
-                    id="company"
-                    name="company"
-                    type="text"
-                    value={data.company}
-                    placeholder="Company (optional)"
-                    onChange={onChange}
-                  />
-                </div>
-                <div className="flex flex-col mb-6">
-                  <Form
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={data.email}
-                    placeholder="Email *"
-                    onChange={onChange}
-                  />
-                </div>
-                <div className="flex flex-col mb-6">
-                  <Form
-                    id="phone"
-                    name="phone"
-                    type="number"
-                    value={data.phone}
-                    placeholder="Phone (optional)"
-                    onChange={onChange}
-                  />
-                </div>
-              </div>
-
-              <div className="mb-6 mx-2 lg:mx-5">
-                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                <label htmlFor="topic" className="block text-sm text-theme-blue font-medium mb-2">
-                  What can we help with?
-                  <select
-                    id="topic"
-                    name="topic"
-                    value={data.topic}
-                    onChange={onTopicChange}
-                    className="mt-2 w-full p-4 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple bg-white"
-                  >
-                    {TOPICS.map((t) => (
-                      <option key={t} value={t}>{t}</option>
-                    ))}
-                  </select>
-                </label>
-              </div>
-
-              <div className="mx-2 lg:mx-5">
-                <Form
-                  id="message"
-                  name="message"
-                  type="textarea"
-                  value={data.message}
-                  placeholder="Tell us a little about what you need *"
-                  onChange={onChange}
-                />
-              </div>
-
-              <Button
-                className="text-lg w-full sm:w-auto px-10 py-3 mt-2 bg-theme-purple text-white rounded-full border-2 border-theme-purple hover:bg-dark-theme-purple transition duration-200 focus:outline-none"
-                type="button"
-                onClick={submitEmail}
-              >
-                Send message
-              </Button>
-            </div>
-          </Fade>
         </div>
       </div>
 

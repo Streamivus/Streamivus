@@ -4,13 +4,15 @@
   "description": "A founder-led digital product studio building modern web, mobile, AI, and cloud experiences.",
   "icons": [
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "theme_color": "#6610f2",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "lang": "en-IN"
 }

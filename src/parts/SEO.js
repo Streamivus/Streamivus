@@ -7,46 +7,72 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import PropTypes from 'prop-types';
 
-const SITE_URL = 'https://www.streamivus.com';
-const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`;
+import {
+  absoluteUrl,
+  buildPageTitle,
+  DEFAULT_KEYWORDS,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_SEO,
+  SITE_NAME,
+  SITE_URL,
+} from '../json/seoData';
+
+function normalizeJsonLd(jsonLd) {
+  if (!jsonLd) return [];
+  return Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+}
 
 export default function SEO({
-  title = 'Streamivus | Digital Product Studio for Web, Mobile & AI',
-  description = 'Streamivus is a founder-led digital product studio building modern web, mobile, AI, and cloud solutions for ambitious businesses worldwide.',
+  title = DEFAULT_SEO.title,
+  description = DEFAULT_SEO.description,
   path = '/',
-  image = DEFAULT_IMAGE,
+  image = DEFAULT_OG_IMAGE,
   type = 'website',
-  keywords = 'web development, mobile app development, UI UX design, AI development, SaaS development, cloud consulting, digital agency, Streamivus',
+  keywords = DEFAULT_KEYWORDS,
   jsonLd = null,
+  noindex = false,
 }) {
-  const url = `${SITE_URL}${path}`;
-  const fullTitle = title.includes('Streamivus') ? title : `${title} | Streamivus`;
+  const url = absoluteUrl(path);
+  const fullTitle = buildPageTitle(title);
+  const robots = noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large';
+  const schemas = normalizeJsonLd(jsonLd);
 
   return (
-    <Helmet>
-      <html lang="en" />
+    <Helmet prioritizeSeoTags>
+      <html lang="en-IN" />
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      <meta name="robots" content="index, follow" />
+      <meta name="author" content={SITE_NAME} />
+      <meta name="robots" content={robots} />
+      <meta name="googlebot" content={robots} />
+      <meta name="application-name" content={SITE_NAME} />
+      <meta name="geo.region" content="IN-GJ" />
+      <meta name="geo.placename" content="Rajkot, Gujarat, India" />
       <link rel="canonical" href={url} />
 
+      <meta property="og:locale" content="en_IN" />
       <meta property="og:type" content={type} />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:site_name" content="Streamivus" />
+      <meta property="og:image:alt" content={`${SITE_NAME} — digital product studio`} />
+      <meta property="og:site_name" content={SITE_NAME} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@Streamivus" />
+      <meta name="twitter:creator" content="@Streamivus" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+      <meta name="twitter:image:alt" content={`${SITE_NAME} — digital product studio`} />
 
-      {jsonLd && (
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      )}
+      {schemas.map((schema) => (
+        <script key={schema['@id'] || schema['@type']} type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      ))}
     </Helmet>
   );
 }
@@ -59,5 +85,8 @@ SEO.propTypes = {
   type: PropTypes.string,
   keywords: PropTypes.string,
   // eslint-disable-next-line react/forbid-prop-types
-  jsonLd: PropTypes.object,
+  jsonLd: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  noindex: PropTypes.bool,
 };
+
+export { SITE_URL, DEFAULT_OG_IMAGE };
